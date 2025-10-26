@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jumlah Penduduk Kota Surakarta Tahun 2025</title>
 
-  <!-- Menghubungkan font Figtree dari Google Fonts -->
+  <!-- Menghubungkan font agar tampilan teks lebih modern -->
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- ===== GAYA HALAMAN (CSS) ===== -->
   <style>
-    /* ===== BODY: pengaturan tata letak utama halaman ===== */
+    /* ===== Pengaturan umum halaman ===== */
     body {
       font-family: 'Figtree', sans-serif;
       background-color: #fffaf5;
@@ -25,7 +24,7 @@
       min-height: 100vh;
     }
 
-    /* ===== HEADER: bagian atas halaman dengan gambar latar ===== */
+    /* ===== HEADER ===== */
     header {
       grid-area: header;
       position: relative;
@@ -39,7 +38,7 @@
       background: url('https://blog.bankmega.com/wp-content/uploads/2023/01/tempat-wisata-di-kota-solo.jpg') center/cover no-repeat;
     }
 
-    /* Lapisan gelap transparan di atas gambar */
+    /* Efek gelap transparan agar teks lebih jelas di atas gambar */
     header::before {
       content: "";
       position: absolute;
@@ -48,7 +47,6 @@
       z-index: 1;
     }
 
-    /* Logo di header */
     header img {
       width: 90px;
       z-index: 2;
@@ -56,7 +54,6 @@
       filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.5));
     }
 
-    /* Judul utama di header */
     header h1 {
       position: relative;
       z-index: 2;
@@ -67,7 +64,6 @@
       margin: 10px 0 5px;
     }
 
-    /* Subjudul di bawah judul utama */
     header p {
       position: relative;
       z-index: 2;
@@ -77,7 +73,7 @@
       max-width: 600px;
     }
 
-    /* ===== NAVIGASI: menu untuk berpindah antar tampilan ===== */
+    /* ===== NAVIGASI ===== */
     nav {
       grid-area: nav;
       background-color: #333;
@@ -99,7 +95,7 @@
       color: #ffd0dc;
     }
 
-    /* ===== MAIN LAYOUT: area utama yang berisi sidebar dan konten ===== */
+    /* ===== MAIN (isi halaman) ===== */
     main {
       grid-area: main;
       display: grid;
@@ -109,7 +105,6 @@
       padding: 40px 10%;
     }
 
-    /* ===== SIDEBAR: menampilkan informasi tentang kota Surakarta ===== */
     aside {
       grid-area: sidebar;
       background-color: #ffeeb5;
@@ -118,12 +113,11 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
 
-    /* ===== SECTION: area utama untuk tabel dan grafik ===== */
     section {
       grid-area: content;
     }
 
-    /* ===== TABEL DATA ===== */
+    /* ===== TABEL ===== */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -152,7 +146,7 @@
       background-color: #fff8f0;
     }
 
-    /* ===== FOOTER: bagian bawah halaman ===== */
+    /* ===== FOOTER ===== */
     footer {
       grid-area: footer;
       text-align: center;
@@ -166,12 +160,12 @@
       color: #fff;
     }
 
-    /* ===== CLASS .hidden: menyembunyikan elemen (digunakan untuk navigasi Tabel/Grafik) ===== */
+    /* ===== Kelas bantu untuk sembunyikan bagian ===== */
     .hidden {
       display: none;
     }
 
-    /* ===== RESPONSIVE DESIGN: pengaturan untuk layar kecil ===== */
+    /* ===== Responsif untuk tampilan HP ===== */
     @media (max-width: 768px) {
       main {
         grid-template-columns: 1fr;
@@ -187,24 +181,24 @@
 </head>
 
 <body>
-
-  <!-- ===== HEADER (bagian atas halaman dengan logo dan judul) ===== -->
+  <!-- ===== HEADER ===== -->
   <header>
+    <!-- Logo kota -->
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Seal_of_the_City_of_Surakarta.svg/635px-Seal_of_the_City_of_Surakarta.svg.png" alt="Surakarta">
     <h1>Jumlah Penduduk Kota Surakarta Tahun 2025</h1>
     <p>Distribusi Penduduk Berdasarkan Kelompok Umur dan Jenis Kelamin</p>
   </header>
 
   <!-- ===== MENU NAVIGASI ===== -->
-  <!-- Tombol navigasi untuk menampilkan tabel atau grafik -->
   <nav>
-    <a onclick="showSection('dataSection')">Tabel</a>
+    <!-- Tombol untuk menampilkan tabel atau grafik -->
+    <a onclick="showSection('dataSection')">Data</a>
     <a onclick="showSection('grafikSection')">Grafik</a>
   </nav>
 
   <!-- ===== KONTEN UTAMA ===== -->
   <main>
-    <!-- SIDEBAR: berisi informasi umum tentang Kota Surakarta -->
+    <!-- Sidebar berisi informasi kota -->
     <aside>
       <h3>Tentang Kota Surakarta</h3>
       <p>
@@ -223,8 +217,7 @@
       </p>
     </aside>
 
-    <!-- ===== BAGIAN TABEL DATA ===== -->
-    <!-- Berisi daftar penduduk menurut jenis kelamin dan kelompok umur -->
+    <!-- ===== TABEL DATA ===== -->
     <section id="dataSection">
       <table>
         <tr><th>Kelompok Umur</th><th>Laki-laki</th><th>Perempuan</th><th>Jumlah</th></tr>
@@ -248,14 +241,13 @@
       </table>
     </section>
 
-    <!-- ===== BAGIAN GRAFIK ===== -->
-    <!-- Kanvas tempat Chart.js menggambar grafik batang -->
+    <!-- ===== GRAFIK ===== -->
     <section id="grafikSection" class="hidden">
       <canvas id="barChart" style="margin-top:50px; width:100%; max-width:900px;"></canvas>
     </section>
   </main>
 
-  <!-- ===== FOOTER: identitas pembuat dan sumber data ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <p><b>Dibuat oleh:</b> Yasmin Ghaida Mufidatul Amaliya</p>
     <p>© 2025 Badan Pusat Statistik</p>
@@ -264,23 +256,26 @@
   <!-- ===== SCRIPT CHART.JS ===== -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    // Membuat grafik batang menggunakan Chart.js
+    // Inisialisasi grafik batang
     const ctx = document.getElementById('barChart').getContext('2d');
     const barChart = new Chart(ctx, {
       type: 'bar',
       data: {
+        // Label sumbu X berdasarkan kelompok umur
         labels: ['0–4', '5–9', '10–14', '15–19', '20–24', '25–29', '30–34', '35–39', '40–44', '45–49', '50–54', '55–59', '60–64', '65–69', '70–74', '75+'],
         datasets: [
           {
             label: 'Laki-laki',
-            data: [18500, 19200, 20100, 21300, 22000, 23400, 22800, 22000, 21500, 20700, 19400, 18100, 16000, 13800, 11400, 9600],
-            backgroundColor: 'rgba(255, 182, 193, 0.85)', // warna batang laki-laki
+            // Data disesuaikan dengan tabel
+            data: [17151, 17332, 17958, 19935, 20943, 19979, 19103, 18593, 19261, 19353, 17678, 15976, 13199, 10533, 7456, 5897],
+            backgroundColor: 'rgba(255, 182, 193, 0.85)',
             borderRadius: 10
           },
           {
             label: 'Perempuan',
-            data: [17800, 18900, 19700, 20900, 21800, 22900, 22600, 22200, 21800, 21200, 20100, 19000, 17300, 15200, 12800, 11500],
-            backgroundColor: 'rgba(255, 235, 156, 0.85)', // warna batang perempuan
+            // Data disesuaikan dengan tabel
+            data: [16482, 16612, 17433, 18914, 20140, 19571, 18705, 18262, 19410, 19877, 18505, 17580, 15445, 12774, 9776, 9246],
+            backgroundColor: 'rgba(255, 235, 156, 0.85)',
             borderRadius: 10
           }
         ]
@@ -295,16 +290,15 @@
       }
     });
 
-    // Fungsi untuk menampilkan bagian tertentu berdasarkan menu navigasi
+    // Fungsi untuk menampilkan bagian tertentu (tabel/grafik)
     function showSection(sectionId) {
       document.getElementById('dataSection').classList.add('hidden');
       document.getElementById('grafikSection').classList.add('hidden');
       document.getElementById(sectionId).classList.remove('hidden');
     }
 
-    // Menampilkan tabel data secara default saat halaman dibuka
+    // Default menampilkan tabel saat pertama kali halaman dibuka
     showSection('dataSection');
   </script>
 </body>
 </html>
-
